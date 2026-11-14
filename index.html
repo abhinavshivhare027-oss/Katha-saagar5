@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>कथा सागर - ज्ञान और भक्ति का सागर</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#FFF6E8;color:#2A0A0A;overflow-x:hidden}
+header{background:#FFF6E8;border-bottom:3px solid #C00000;padding:12px 15px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:28px;font-weight:900;color:#8B0000;display:flex;align-items:center;gap:8px}
+.logo span{border:2px solid #C00000;border-radius:10px;padding:2px 8px}
+.h-btn{width:40px;height:40px;border:1.5px solid #D4A017;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer}
+.banner{background:#C00000;color:#fff;text-align:center;padding:20px 10px;border-radius:14px;margin:14px}
+.banner h1{font-size:38px}.banner p{font-size:18px}
+.wrap{max-width:720px;margin:0 auto;padding:0 14px 90px}
+.card{background:#FFFDF5;border:2px solid #C00000;border-radius:14px;padding:14px;display:flex;gap:12px;margin-top:14px}
+.card img{width:120px;height:150px;object-fit:cover;border-radius:10px;border:1px solid #C00000}
+.card h3{font-size:22px;color:#8B0000}.card p{font-size:13px;line-height:1.5;margin:6px 0}
+.btn-buy{background:#C00000;color:#fff;border:none;padding:9px 15px;border-radius:7px;font-weight:700;cursor:pointer}
+.btn-read{background:#fff;color:#C00000;border:2px solid #C00000;padding:7px 13px;border-radius:7px;font-weight:700;cursor:pointer}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.mini{background:#FFFDF5;border:2px solid #C00000;border-radius:12px;padding:14px;text-align:center}
+.mini h3{color:#8B0000}
+/* SIDEBAR */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:20}
+.overlay.show{display:block}
+.sidebar{position:fixed;top:0;left:-300px;width:280px;height:100%;background:#FFF6E8;z-index:30;transition:.3s;box-shadow:5px 0 20px rgba(0,0,0,.3);overflow-y:auto}
+.sidebar.open{left:0}
+.side-head{background:#C00000;color:#fff;padding:16px;display:flex;justify-content:space-between;align-items:center;font-size:22px;font-weight:900}
+.side-head button{background:none;border:none;color:#fff;font-size:24px;cursor:pointer}
+.sidebar a{display:flex;gap:12px;align-items:center;padding:15px 18px;text-decoration:none;color:#5C0606;font-size:19px;font-weight:600;border-bottom:1px solid #F0D9B0}
+.sidebar a:active{background:#FFE9E9}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#FFF6E8;border-top:2px solid #C00000;display:flex;justify-content:space-around;padding:10px 0;z-index:10}
+.bottom div{text-align:center;font-size:13px;color:#8B0000;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
 
+<header>
+  <div class="logo"><span>ॐ</span> कथा सागर</div>
+  <div style="display:flex;gap:8px"><div class="h-btn">🔍</div><div class="h-btn" onclick="openMenu()">☰</div></div>
+</header>
+
+<!-- SIDEBAR -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="sidebar" id="sidebar">
+  <div class="side-head"><span>ॐ कथा सागर</span><button onclick="closeMenu()">✕</button></div>
+  <a href="#" onclick="closeMenu()">🏠 होम</a>
+  <a href="#" onclick="showPage('पुस्तकें')">📚 पुस्तकें</a>
+  <a href="#" onclick="showPage('कथा संग्रह')">📖 कथा संग्रह</a>
+  <a href="#" onclick="showPage('व्रत')">🪔 व्रत</a>
+  <a href="#" onclick="showPage('मंत्र')">📿 मंत्र</a>
+  <a href="#" onclick="showPage('सहस्त्रनामावली')">📜 सहस्त्रनामावली</a>
+  <a href="#" onclick="showPage('भजन')">🎵 भजन</a>
+  <a href="#" onclick="showPage('मेरा खाता')">👤 मेरा खाता</a>
+</div>
+
+<div class="wrap">
+  <div class="banner"><h1>मत्स्य महापुराण</h1><p>रचयिता : महर्षि वेदव्यास</p><p style="font-size:14px;margin-top:8px;background:#fff;color:#C00000;display:inline-block;padding:4px 12px;border-radius:20px">मूल्य : रु. 300-00</p></div>
+
+  <h2 style="color:#8B0000;margin-top:6px">फीचर्ड बुक</h2>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1604608672516-f1b9b1d37076?w=400">
+    <div><h3>मत्स्य महापुराण</h3><p>प्राचीन भारतीय ज्ञान और संस्कृति का अमूल्य ग्रंथ। सस्ता पुस्तकों की योजना अन्तर्गत अब रु. 300 में उपलब्ध।</p><button class="btn-buy" onclick="order()">अभी खरीदें 🛒</button> <button class="btn-read">विवरण देखें</button></div>
+  </div>
+
+  <h2 style="color:#8B0000;margin-top:18px">अन्य पुस्तकें</h2>
+  <div class="grid">
+    <div class="mini"><h3>रामायण सार</h3><p>रु. 250-00<br>वाल्मीकि</p><br><button class="btn-buy" onclick="order()">खरीदें</button></div>
+    <div class="mini"><h3>श्रीमद्भागवत</h3><p>रु. 350-00<br>व्यास</p><br><button class="btn-buy" onclick="order()">खरीदें</button></div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div onclick="showPage('होम')">🏠<br>होम</div>
+  <div onclick="showPage('पुस्तकें')">📚<br>पुस्तकें</div>
+  <div onclick="showPage('खोज')">🔍<br>खोज</div>
+  <div>🛒<br>कार्ट</div>
+  <div onclick="showPage('प्रोफाइल')">👤<br>प्रोफाइल</div>
+</div>
+
+<script>
+function openMenu(){document.getElementById('sidebar').classList.add('open');document.getElementById('overlay').classList.add('show')}
+function closeMenu(){document.getElementById('sidebar').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
+function showPage(n){closeMenu();alert(n+' वाला पेज जल्द खुलेगा')}
+function order(){let name=prompt('अपना नाम लिखें:');if(name){alert('धन्यवाद '+name+'! आपका ऑर्डर मिल गया। हम WhatsApp पर संपर्क करेंगे।')}}
+</script>
+</body>
+</html>
